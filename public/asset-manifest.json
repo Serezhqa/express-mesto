@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.19bcdf35.chunk.css",
+    "main.js": "/static/js/main.b7992d56.chunk.js",
+    "main.js.map": "/static/js/main.b7992d56.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.66dd7950.js",
+    "runtime-main.js.map": "/static/js/runtime-main.66dd7950.js.map",
+    "static/js/2.912b73bd.chunk.js": "/static/js/2.912b73bd.chunk.js",
+    "static/js/2.912b73bd.chunk.js.map": "/static/js/2.912b73bd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.dae9e53c3be02c6a3e9b3f9542c32045.js": "/precache-manifest.dae9e53c3be02c6a3e9b3f9542c32045.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.19bcdf35.chunk.css.map": "/static/css/main.19bcdf35.chunk.css.map",
+    "static/js/2.912b73bd.chunk.js.LICENSE.txt": "/static/js/2.912b73bd.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/like-button_active.b1216740.svg",
+    "static/media/logo.svg": "/static/media/logo.e889e45f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66dd7950.js",
+    "static/js/2.912b73bd.chunk.js",
+    "static/css/main.19bcdf35.chunk.css",
+    "static/js/main.b7992d56.chunk.js"
+  ]
+}
