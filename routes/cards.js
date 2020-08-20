@@ -8,9 +8,14 @@ router.get('/', (req, res) => {
   fs.readFile(pathToCards, (error, data) => {
     if (error) {
       res.status(500).send(`При чтении файла по пути ${pathToCards} произошла ошибка: ${error}`);
+      return;
     }
 
-    res.send(JSON.parse(data));
+    try {
+      res.send(JSON.parse(data));
+    } catch (err) {
+      res.status(500).send(`При парсинге файла по пути ${pathToCards} произошла ошибка: ${err}`);
+    }
   });
 });
 
