@@ -1,55 +1,12 @@
 const router = require('express').Router();
-const fs = require('fs');
-const path = require('path');
+const {
+  createUser, getUsers, getUserById, updateUser, updateAvatar,
+} = require('../controllers/users');
 
-const pathToUsers = path.join(__dirname, '../data/users.json');
-
-router.get('/', (req, res) => {
-  fs.readFile(pathToUsers, (error, data) => {
-    if (error) {
-      res.status(500).send({
-        message: `При чтении файла по пути ${pathToUsers} произошла ошибка: ${error}`,
-      });
-      return;
-    }
-
-    try {
-      res.send(JSON.parse(data));
-    } catch (err) {
-      res.status(500).send({
-        message: `При парсинге файла по пути ${pathToUsers} произошла ошибка: ${err}`,
-      });
-    }
-  });
-});
-
-router.get('/:id', (req, res) => {
-  fs.readFile(pathToUsers, (error, data) => {
-    if (error) {
-      res.status(500).send({
-        message: `При чтении файла по пути ${pathToUsers} произошла ошибка: ${error}`,
-      });
-      return;
-    }
-
-    let users;
-    try {
-      users = JSON.parse(data);
-    } catch (err) {
-      res.status(500).send({
-        message: `При парсинге файла по пути ${pathToUsers} произошла ошибка: ${err}`,
-      });
-    }
-
-    const user = users.find((item) => item._id === req.params.id);
-    if (user) {
-      res.send(user);
-    } else {
-      res.status(404).send({
-        message: 'Нет пользователя с таким id',
-      });
-    }
-  });
-});
+router.post('/', createUser);
+router.get('/', getUsers);
+router.get('/:userId', getUserById);
+router.patch('/me', updateUser);
+router.patch('/me/avatar', updateAvatar);
 
 module.exports = router;
