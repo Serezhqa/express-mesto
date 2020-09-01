@@ -7,13 +7,13 @@ const createCard = (req, res) => {
     .catch((error) => {
       if (error.name === 'ValidationError') {
         res.status(400).send({
-          message: 'Переданы некорректные данные',
+          message: error.message,
         });
         return;
       }
 
       res.status(500).send({
-        message: `На сервере произошла ошибка: ${error}`,
+        message: `На сервере произошла ошибка: ${error.message}`,
       });
     });
 };
@@ -22,7 +22,7 @@ const getCards = (req, res) => {
   Card.find({})
     .then((result) => res.send({ data: result }))
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 
@@ -39,7 +39,7 @@ const deleteCard = (req, res) => {
       });
     })
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 
@@ -62,7 +62,7 @@ const likeCard = (req, res) => {
       });
     })
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 
@@ -85,7 +85,7 @@ const dislikeCard = (req, res) => {
       });
     })
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 

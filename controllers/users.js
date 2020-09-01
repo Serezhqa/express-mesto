@@ -7,13 +7,13 @@ const createUser = (req, res) => {
     .catch((error) => {
       if (error.name === 'ValidationError') {
         res.status(400).send({
-          message: 'Переданы некорректные данные',
+          message: error.message,
         });
         return;
       }
 
       res.status(500).send({
-        message: `На сервере произошла ошибка: ${error}`,
+        message: `На сервере произошла ошибка: ${error.message}`,
       });
     });
 };
@@ -22,7 +22,7 @@ const getUsers = (req, res) => {
   User.find({})
     .then((result) => res.send({ data: result }))
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 
@@ -39,7 +39,7 @@ const getUserById = (req, res) => {
       });
     })
     .catch((error) => res.status(500).send({
-      message: `На сервере произошла ошибка: ${error}`,
+      message: `На сервере произошла ошибка: ${error.message}`,
     }));
 };
 
@@ -58,13 +58,13 @@ const updateUser = (req, res) => {
     .catch((error) => {
       if (error.name === 'ValidationError') {
         res.status(400).send({
-          message: 'Переданы некорректные данные',
+          message: error.message,
         });
         return;
       }
 
       res.status(500).send({
-        message: `На сервере произошла ошибка: ${error}`,
+        message: `На сервере произошла ошибка: ${error.message}`,
       });
     });
 };
@@ -83,13 +83,13 @@ const updateAvatar = (req, res) => {
     .catch((error) => {
       if (error.name === 'ValidationError') {
         res.status(400).send({
-          message: 'Переданы некорректные данные',
+          message: error.message,
         });
         return;
       }
 
       res.status(500).send({
-        message: `На сервере произошла ошибка: ${error}`,
+        message: `На сервере произошла ошибка: ${error.message}`,
       });
     });
 };
